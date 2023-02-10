@@ -1,11 +1,21 @@
 // Assignment Code
 
 // Variables Needed for Password Criteria
-let passwordLength = ;
+// let passwordLength = ;
 let lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 let numChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", "=", "-", ".", "~", "|", "/", "?", "<", ">", "_", "{", "}", "[", "]"];
+
+// don't know if this will be useful
+// const keys = {
+// numChar: "1234567890",
+// lowerChar: "abcdefghijklmnopqrstuvwxyz",
+// upperChar: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+// specialChar: "!@#$%^&*()_+-=~}{[]></."
+// }
+// From Act 28 mini-project index = Math.floor(Math.random() * options.length)
+
 
 //targets Generate Password Button
 var generateBtn = document.querySelector("#generate");
@@ -14,8 +24,9 @@ function generatePassword() {
   // prompts for password criteria
   // 
   // prompt for length between 8 and 128 characters
+  let passwordLength = prompt("Please enter the desired length of your password as an integer between 8 and 128.")
   //  passwordLength = 
-  //   if (passwordLegth < 8 or > 128) return: "Please select a length between 8 and 128 characters"
+  //   if (passwordLegth < 8 || > 128) return: "Please select a length between 8 and 128 characters"
   // prompt for whether or not to include lowercase, uppercase, numeric, and/or special characters
 }
 
