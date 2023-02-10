@@ -35,6 +35,12 @@ function generatePassword() {
     // Confirm Special
   let includeSpecialChar = confirm("Would you like your password to include special characters?");
 
+  //Error if no character types selected
+  if (includeLowerChar === false && includeUpperChar === false && includeNumChar === false && includeSpecialChar === false) {
+    alert("You did not select any character types. Please select at least one.");
+    return null;
+  }
+
 
 
   // for(let i = 0; i < passwordLength.length; i++) {
