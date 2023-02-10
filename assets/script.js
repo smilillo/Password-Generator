@@ -24,7 +24,12 @@ function generatePassword() {
   // prompts for password criteria
   // 
   // prompt for length between 8 and 128 characters
-  let passwordLength = prompt("Please enter the desired length of your password as an integer between 8 and 128.")
+  let passwordLength = prompt("Please enter the desired length of your password as an integer between 8 and 128.");
+    if (passwordLength < 8 || passwordLength > 128) {
+      window.alert("The password length must be an integer between 8 and 128. Please try again.");
+    }
+
+
   //  passwordLength = 
   //   if (passwordLegth < 8 || > 128) return: "Please select a length between 8 and 128 characters"
   // prompt for whether or not to include lowercase, uppercase, numeric, and/or special characters
