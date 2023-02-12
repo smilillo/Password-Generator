@@ -58,6 +58,7 @@ function getPasswordChoices() {
   // for(let i = 0; i < passwordLength.length; i++) {
 
   // }
+
 // Function to randomly select item from an array
 function random(arr) {
   // select index from array
@@ -66,6 +67,9 @@ function random(arr) {
   let randomChar = arr[randomIndex];
   return randomChar;
 }
+
+getPasswordChoices();
+
 
 function generatePassword () {
   let passwordOptions = getPasswordChoices();
@@ -96,9 +100,9 @@ function generatePassword () {
     let chosenChar = random(possibleChar);
     // Push randomly chosen characters into result array
     result.push(chosenChar);
+
+    // need to call results array and randomChar somewhere
   }
-
-
 }
 
 // Write password to the #password input
