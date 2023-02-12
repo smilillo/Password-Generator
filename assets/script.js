@@ -13,7 +13,7 @@ let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", "
 //targets Generate Password Button
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword() {
+function getPasswordChoices() {
   
   // Prompt for Password Length
   let passwordLength = parseInt(prompt("Please enter the desired character length of your password as an integer between 8 and 128."));
@@ -23,29 +23,47 @@ function generatePassword() {
       return null;
     }
 
-    // Confirm Lowercase
+  // Confirm Lowercase
   let includeLowerChar = confirm("Would you like your password to include lowercase characters?");
 
-    // Confirm Uppercase
+  // Confirm Uppercase
   let includeUpperChar = confirm("Would you like your password to include uppercase characters?");
 
-    // Confirm Numbers
+  // Confirm Numbers
   let includeNumChar = confirm("Would you like your password to include numeric characters?");
 
-    // Confirm Special
+  // Confirm Special
   let includeSpecialChar = confirm("Would you like your password to include special characters?");
 
-  //Error if no character types selected
+  // Alerts user to select at least one if no character types selected
   if (includeLowerChar === false && includeUpperChar === false && includeNumChar === false && includeSpecialChar === false) {
     alert("You did not select any character types. Please select at least one.");
     return null;
   }
+  // Variable Containing Character Options based on User Choices
+  let passwordChoices = {
+    passwordLength = passwordLength,
+    includeLowerChar = includeLowerChar,
+    includeUpperChar = includeUpperChar,
+    includeNumChar = includeNumChar,
+    includeSpecialChar = includeSpecialChar,
+  };
+  
+  }
+
+  // Need to combine selected arrays somehow?, store length, lower, upper, num, and special together but depending on user choice
+
+
 
 
 
   // for(let i = 0; i < passwordLength.length; i++) {
 
   // }
+}
+
+function generatePassword () {
+
 }
 
 // Write password to the #password input
