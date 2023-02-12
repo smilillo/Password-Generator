@@ -7,12 +7,10 @@ let upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 let numChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", "=", "-", ".", "~", "|", "/", "?", "<", ">", "_", "{", "}", "[", "]"];
 
-// From Act 28 mini-project index = Math.floor(Math.random() * options.length)
-
-
 //targets Generate Password Button
 var generateBtn = document.querySelector("#generate");
 
+// Prompt user to choose length and types of characters and store this data
 function getPasswordChoices() {
   
   // Prompt for Password Length
@@ -56,13 +54,50 @@ function getPasswordChoices() {
 
 
 
-
+  // From Act 28 mini-project index = Math.floor(Math.random() * options.length)
   // for(let i = 0; i < passwordLength.length; i++) {
 
   // }
-
+// Function to randomly select item from an array
+function random(arr) {
+  // select index from array
+  let randomIndex = Math.floor(Math.random() * arr.length);
+  // store string associated with that index
+  let randomChar = arr[randomIndex];
+  return randomChar;
+}
 
 function generatePassword () {
+  let passwordOptions = getPasswordChoices();
+  // Array to store password
+  let result = [];
+  // Array to store characters that can be included in password based on user choices
+  let possibleChar = [];
+
+  // If statement that concatenates character type arrays into password options array if they were confirmed by user
+  if (passwordOptions.includeLowerChar) {
+    possibleChar = possibleChar.concat(lowerChar);
+  }
+
+  if (passwordOptions.includeUpperChar) {
+    possibleChar = possibleChar.concat(upperChar);
+  }
+
+  if (passwordOptions.includeNumChar) {
+    possibleChar = possibleChar.concat(numChar);
+  }
+
+  if (passwordOptions.includeSpecialChar) {
+    possibleChar = possibleChar.concat(specialChar);
+  }
+
+  // for loop to select random characters from possibleChar array
+  for (let i = 0; i < passwordOptions.length; i++) {
+    let chosenChar = random(possibleChar);
+    // Push randomly chosen characters into result array
+    result.push(chosenChar);
+  }
+
 
 }
 
