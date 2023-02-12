@@ -42,13 +42,13 @@ function getPasswordChoices() {
   }
   // Variable Containing Character Options based on User Choices
   let passwordChoices = {
-    passwordLength = passwordLength,
-    includeLowerChar = includeLowerChar,
-    includeUpperChar = includeUpperChar,
-    includeNumChar = includeNumChar,
-    includeSpecialChar = includeSpecialChar,
+    passwordLength: passwordLength,
+    includeLowerChar: includeLowerChar,
+    includeUpperChar: includeUpperChar,
+    includeNumChar: includeNumChar,
+    includeSpecialChar: includeSpecialChar,
   };
-  
+
   }
 
   // Need to combine selected arrays somehow?, store length, lower, upper, num, and special together but depending on user choice
@@ -60,7 +60,7 @@ function getPasswordChoices() {
   // for(let i = 0; i < passwordLength.length; i++) {
 
   // }
-}
+
 
 function generatePassword () {
 
