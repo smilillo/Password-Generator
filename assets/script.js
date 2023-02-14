@@ -7,8 +7,7 @@ let upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 let numChar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 let specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", "=", "-", ".", "~", "|", "/", "?", "<", ">", "_", "{", "}", "[", "]"];
 
-//targets Generate Password Button
-var generateBtn = document.querySelector("#generate");
+document.getElementById("password").value = password;
 
 // Prompt user to choose length and types of characters and store this data
 function getPasswordChoices() {
@@ -47,20 +46,12 @@ function getPasswordChoices() {
     includeSpecialChar: includeSpecialChar,
   };
 
+    return passwordChoices;
   }
 
-  // Need to combine selected arrays somehow?, store length, lower, upper, num, and special together but depending on user choice
-
-
-
-
-  // From Act 28 mini-project index = Math.floor(Math.random() * options.length)
-  // for(let i = 0; i < passwordLength.length; i++) {
-
-  // }
 
 // Function to randomly select item from an array
-function random(arr) {
+function getRandom(arr) {
   // select index from array
   let randomIndex = Math.floor(Math.random() * arr.length);
   // store string associated with that index
@@ -68,50 +59,63 @@ function random(arr) {
   return randomChar;
 }
 
-getPasswordChoices();
-
-
 function generatePassword () {
   let passwordOptions = getPasswordChoices();
   // Array to store password
   let result = [];
   // Array to store characters that can be included in password based on user choices
   let possibleChar = [];
+  let guaranteedChar = [];
+
+  if (!passwordOptions) return null;
 
   // If statement that concatenates character type arrays into password options array if they were confirmed by user
   if (passwordOptions.includeLowerChar) {
     possibleChar = possibleChar.concat(lowerChar);
+    guaranteedChar.push(getRandom(lowerChar));
   }
 
   if (passwordOptions.includeUpperChar) {
     possibleChar = possibleChar.concat(upperChar);
+    guaranteedChar.push(getRandom(upperChar));
   }
 
   if (passwordOptions.includeNumChar) {
     possibleChar = possibleChar.concat(numChar);
+    guaranteedChar.push(getRandom(numChar));
   }
 
   if (passwordOptions.includeSpecialChar) {
     possibleChar = possibleChar.concat(specialChar);
+    guaranteedChar.push(getRandom(specialChar));
   }
 
   // for loop to select random characters from possibleChar array
   for (let i = 0; i < passwordOptions.length; i++) {
-    let chosenChar = random(possibleChar);
+    let chosenChar = getRandom(possibleChar);
     // Push randomly chosen characters into result array
     result.push(chosenChar);
-
     // need to call results array and randomChar somewhere
   }
+
+  for (let i=0; i < guaranteedChar.length; i++) {
+    result[i] = guaranteedChar[i];
+    // result.push(guaranteedChar[i]);
+  }
+
+  return result.join("");
 }
+
+//targets Generate Password Button
+let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let result = generatePassword();
+  let passwordText = document.querySelector("#password");
 
   // displays password on the screen 
-  passwordText.value = password;
+  passwordText.value = result;
 
 }
 
@@ -120,6 +124,4 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-// when prompts are completed run function to generate password
-// when password is generated display password in prompt or on screen
 
