@@ -90,7 +90,7 @@ function generatePassword () {
   }
 
   // for loop to select random characters from possibleChar array
-  for (let i = 0; i < passwordOptions.length; i++) {
+  for (let i = 0; i < passwordOptions.passwordLength; i++) {
     let chosenChar = getRandom(possibleChar);
     // Push randomly chosen characters into result array
     result.push(chosenChar);
@@ -98,8 +98,8 @@ function generatePassword () {
   }
 
   for (let i=0; i < guaranteedChar.length; i++) {
-    result[i] = guaranteedChar[i];
-    // result.push(guaranteedChar[i]);
+    // result[i] = guaranteedChar[i];
+    result.push(guaranteedChar[i]);
   }
 
   return result.join("");
