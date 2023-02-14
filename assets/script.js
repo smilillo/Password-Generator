@@ -37,6 +37,7 @@ function getPasswordChoices() {
     alert("You did not select any character types. Please select at least one.");
     return null;
   }
+
   // Variable Containing Character Options based on User Choices
   let passwordChoices = {
     passwordLength: passwordLength,
@@ -45,18 +46,16 @@ function getPasswordChoices() {
     includeNumChar: includeNumChar,
     includeSpecialChar: includeSpecialChar,
   };
-
     return passwordChoices;
   }
 
-
-// Function to randomly select item from an array
-function getRandom(arr) {
-  // select index from array
-  let randomIndex = Math.floor(Math.random() * arr.length);
-  // store string associated with that index
-  let randomChar = arr[randomIndex];
-  return randomChar;
+  // Function to randomly select item from an array
+  function getRandom(arr) {
+    // select index from array
+    let randomIndex = Math.floor(Math.random() * arr.length);
+    // store string associated with that index
+    let randomChar = arr[randomIndex];
+    return randomChar;
 }
 
 function generatePassword () {
